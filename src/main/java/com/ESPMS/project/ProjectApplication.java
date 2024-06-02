@@ -17,3 +17,4 @@ public class ProjectApplication {
 		return String.format("Hello %s!", name);
 	}
 }
+
