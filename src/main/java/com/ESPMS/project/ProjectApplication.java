@@ -15,16 +15,8 @@ public class ProjectApplication {
 
 	// Hello world message on home screen
 
-	@GetMapping("/")
+	@RequestMapping("/")
 	public ResponseEntity<String> home() {
 		return ResponseEntity.ok("Hello World");
-	}
-
-	// Get all students
-	@GetMapping("/students")
-	public ResponseEntity<String> getStudents() {
-		StudentDBManagerImpl studentDBManager = new StudentDBManagerImpl();
-		studentDBManager.findAll();
-		return ResponseEntity.ok("List of students");
 	}
 }

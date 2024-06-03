@@ -4,22 +4,27 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Students")
-public class Student {
+public class Students {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String StudentName;
+    private Long studentID;
+    private String Name;
     private String Department;
     private int Semester;
 
-    public Student(String StudentName, String Department, int Semester) {
-        this.StudentName = StudentName;
+	public Students() {
+		
+	}
+    
+    public Students(String StudentName, String Department, int Semester) {
+        this.Name = StudentName;
         this.Department = Department;
         this.Semester = Semester;
     }
 
     public String getStudentName() {
-        return StudentName;
+        return Name;
     }
 
     public String getDepartment() {
@@ -31,7 +36,7 @@ public class Student {
     }
 
     public void setStudentName(String StudentName) {
-        this.StudentName = StudentName;
+        this.Name = StudentName;
     }
 
     public void setDepartment(String Department) {
