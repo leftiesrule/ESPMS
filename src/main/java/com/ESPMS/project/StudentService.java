@@ -27,4 +27,31 @@ public class StudentService {
     public void deleteById(Long id) {
         studentJpaRepository.deleteById(id);
     }
+    
+	public Students update(Long id, String name, String department, Long Semester) {
+		Optional<Students> optionalStudents = studentJpaRepository.findById(id);
+		
+		if (optionalStudents.isPresent()) {
+			Students student = optionalStudents.get();
+
+			if (!student.getStudentName().equals(name)) {
+				student.setStudentName(name);
+			}
+
+			if (!student.getDepartment().equals(department)) {
+				student.setDepartment(department);
+			}
+
+			if (!student.getSemester().equals(Semester)) {
+				student.setSemester(Semester);
+			}
+
+			return studentJpaRepository.save(student);
+		}
+
+		else {
+			throw new RuntimeException("Student not found with id " + id);
+		}
+		
+	}
 }

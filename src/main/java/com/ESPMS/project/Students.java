@@ -8,20 +8,36 @@ public class Students {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    @Column(name = "StudentID")
     private Long studentID;
+    
+    @Column(name = "Name")
     private String Name;
+    
+    @Column(name = "Department")
     private String Department;
-    private int Semester;
+    
+    @Column(name = "Semester")
+    private Long Semester;
 
 	public Students() {
 		
 	}
     
-    public Students(String StudentName, String Department, int Semester) {
+    public Students(String StudentName, String Department, Long Semester) {
         this.Name = StudentName;
         this.Department = Department;
         this.Semester = Semester;
     }
+    
+	public Long getStudentID() {
+		return studentID;
+	}
+	
+	public void setStudentID(Long studentID) {
+		this.studentID = studentID;
+	}
 
     public String getStudentName() {
         return Name;
@@ -31,7 +47,7 @@ public class Students {
         return Department;
     }
 
-    public int getSemester() {
+    public Long getSemester() {
         return Semester;
     }
 
@@ -43,7 +59,7 @@ public class Students {
         this.Department = Department;
     }
 
-    public void setSemester(int Semester) {
+    public void setSemester(Long Semester) {
         this.Semester = Semester;
     }
 }
